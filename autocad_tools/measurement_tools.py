@@ -8,6 +8,7 @@ from typing import List, Dict, Optional, Tuple
 import math
 import ezdxf
 from openpyxl import Workbook
+from openpyxl.styles import Font
 from .utils import (
     load_dxf, create_excel_workbook, style_header,
     auto_size_columns, add_border, save_excel, filter_by_layer,
@@ -311,8 +312,5 @@ class MeasurementTools:
                         row += 1
         
         auto_size_columns(ws_stats)
-        
-        # Import Font at top of function if not already imported
-        from openpyxl.styles import Font
         
         save_excel(wb, output_path)
