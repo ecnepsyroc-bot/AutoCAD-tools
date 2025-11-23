@@ -1,0 +1,20 @@
+# Visual Studio Code / IDE files
+.vscode/
+
+# AutoCAD Run-time Side Effects (Crucial to ignore for testing)
+*.dwl
+*.dwl2
+*.bak
+
+# .NET / Compiler Build Files
+/bin/
+/obj/
+*.dll
+*.pdb
+
+# Live Data (Do NOT track the SSOT itself)
+Millwork_SSOT_v6_NonFinancial.xlsx
+
+# LISP Temporary/History files
+*.fas
+*.vlx
