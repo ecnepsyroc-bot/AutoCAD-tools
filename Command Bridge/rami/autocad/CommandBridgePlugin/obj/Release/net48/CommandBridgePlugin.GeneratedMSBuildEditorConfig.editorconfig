@@ -1,6 +1,6 @@
 is_global = true
 build_property.RootNamespace = FeatureMillwork.CommandBridge
-build_property.ProjectDir = C:\Users\cory\OneDrive\_Feature_Millwork\Command Bridge\rami\autocad\CommandBridgePlugin\
+build_property.ProjectDir = C:\Users\cory\OneDrive\_Feature_Millwork\AutoCAD tools\Command Bridge\rami\autocad\CommandBridgePlugin\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.CsWinRTUseWindowsUIXamlProjections = false

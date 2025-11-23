@@ -6,6 +6,7 @@ using Autodesk.AutoCAD.ApplicationServices;
 using Autodesk.AutoCAD.Runtime;
 using Autodesk.AutoCAD.EditorInput;
 using Autodesk.AutoCAD.Internal;
+using SysException = System.Exception;
 
 namespace FeatureMillwork.CommandBridge
 {
@@ -32,15 +33,6 @@ namespace FeatureMillwork.CommandBridge
                 // Subscribe to document events
                 Application.DocumentManager.DocumentCreated += OnDocumentCreated;
                 Application.DocumentManager.DocumentActivated += OnDocumentActivated;
-                
-                // Hook into command events to trigger immediate capture
-                if (_editor != null)
-                {
-                    _editor.CommandWillStart += OnCommandWillStart;
-                    _editor.CommandEnded += OnCommandEnded;
-                    _editor.CommandCancelled += OnCommandCancelled;
-                    _editor.CommandFailed += OnCommandFailed;
-                }
 
                 // Start timer to capture command line text using command echo mechanism
                 // Uses AutoCAD's internal API to read command line history
@@ -48,7 +40,7 @@ namespace FeatureMillwork.CommandBridge
 
                 WriteToBridge("=== COMMAND BRIDGE PLUGIN LOADED ===");
             }
-            catch (Exception ex)
+            catch (SysException ex)
             {
                 System.Diagnostics.Debug.WriteLine($"Command Bridge Error: {ex.Message}");
             }
@@ -67,45 +59,12 @@ namespace FeatureMillwork.CommandBridge
 
         private void OnDocumentCreated(object sender, DocumentCollectionEventArgs e)
         {
-            if (e.Document != null)
-            {
-                e.Document.Editor.CommandWillStart += OnCommandWillStart;
-                e.Document.Editor.CommandEnded += OnCommandEnded;
-                e.Document.Editor.CommandCancelled += OnCommandCancelled;
-                e.Document.Editor.CommandFailed += OnCommandFailed;
-            }
+            // Document created - no special actions needed
         }
 
         private void OnDocumentActivated(object sender, DocumentCollectionEventArgs e)
         {
             _editor = e.Document?.Editor;
-        }
-
-        private void OnCommandWillStart(object sender, CommandEventArgs e)
-        {
-            if (!IsActive) return;
-            // Capture any pending text before command starts
-            CaptureCommandLineEcho(null);
-        }
-
-        private void OnCommandEnded(object sender, CommandEventArgs e)
-        {
-            if (!IsActive) return;
-            // Capture command output after command ends
-            System.Threading.Thread.Sleep(50); // Small delay to let echo finish
-            CaptureCommandLineEcho(null);
-        }
-
-        private void OnCommandCancelled(object sender, CommandEventArgs e)
-        {
-            if (!IsActive) return;
-            CaptureCommandLineEcho(null);
-        }
-
-        private void OnCommandFailed(object sender, CommandEventArgs e)
-        {
-            if (!IsActive) return;
-            CaptureCommandLineEcho(null);
         }
 
         /// <summary>
@@ -145,7 +104,7 @@ namespace FeatureMillwork.CommandBridge
                     // Update last captured lines
                     _lastCapturedLines = new List<string>(currentLines);
                 }
-                catch (Exception ex)
+                catch (SysException ex)
                 {
                     // Silently handle errors to avoid spam
                     System.Diagnostics.Debug.WriteLine($"Capture Error: {ex.Message}");
