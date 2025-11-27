@@ -1,0 +1,87 @@
+{
+  "name": "autocad-command-bridge",
+  "displayName": "AutoCAD Command Bridge",
+  "description": "Real-time AutoCAD command line monitoring and execution for Feature Millwork development",
+  "version": "1.0.0",
+  "engines": {
+    "vscode": "^1.74.0"
+  },
+  "categories": ["Other"],
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "main": "./extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "autocadBridge.start",
+        "title": "AutoCAD Bridge: Connect"
+      },
+      {
+        "command": "autocadBridge.stop",
+        "title": "AutoCAD Bridge: Disconnect"
+      },
+      {
+        "command": "autocadBridge.sendCommand",
+        "title": "AutoCAD Bridge: Send Command"
+      },
+      {
+        "command": "autocadBridge.executeLisp",
+        "title": "AutoCAD Bridge: Execute LISP"
+      },
+      {
+        "command": "autocadBridge.clearLog",
+        "title": "AutoCAD Bridge: Clear Log"
+      },
+      {
+        "command": "autocadBridge.showMonitor",
+        "title": "AutoCAD Bridge: Show Monitor Panel"
+      }
+    ],
+    "keybindings": [
+      {
+        "command": "autocadBridge.executeLisp",
+        "key": "ctrl+shift+e",
+        "when": "editorTextFocus && resourceExtname == .lsp"
+      },
+      {
+        "command": "autocadBridge.sendCommand",
+        "key": "ctrl+shift+c"
+      },
+      {
+        "command": "autocadBridge.showMonitor",
+        "key": "ctrl+shift+m"
+      }
+    ],
+    "configuration": {
+      "title": "AutoCAD Command Bridge",
+      "properties": {
+        "autocadBridge.autoConnect": {
+          "type": "boolean",
+          "default": true,
+          "description": "Automatically connect to AutoCAD on startup"
+        },
+        "autocadBridge.autoShowMonitor": {
+          "type": "boolean",
+          "default": false,
+          "description": "Automatically show monitor panel when connected"
+        },
+        "autocadBridge.showTimestamps": {
+          "type": "boolean",
+          "default": true,
+          "description": "Show timestamps in command log"
+        },
+        "autocadBridge.highlightErrors": {
+          "type": "boolean",
+          "default": true,
+          "description": "Highlight errors in LISP files"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "test": "echo \"No tests yet\""
+  },
+  "dependencies": {
+  }
+}
