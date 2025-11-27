@@ -1,0 +1,13 @@
+C:\Users\cory\OneDrive\_Feature_Millwork\AutoCAD tools\Command Bridge\rami\autocad\CommandBridgePlugin\obj\Release\net8.0-windows\CommandBridgePlugin.csproj.AssemblyReference.cache
+C:\Users\cory\OneDrive\_Feature_Millwork\AutoCAD tools\Command Bridge\rami\autocad\CommandBridgePlugin\obj\Release\net8.0-windows\CommandBridgePlugin.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\cory\OneDrive\_Feature_Millwork\AutoCAD tools\Command Bridge\rami\autocad\CommandBridgePlugin\obj\Release\net8.0-windows\CommandBridgePlugin.AssemblyInfoInputs.cache
+C:\Users\cory\OneDrive\_Feature_Millwork\AutoCAD tools\Command Bridge\rami\autocad\CommandBridgePlugin\obj\Release\net8.0-windows\CommandBridgePlugin.AssemblyInfo.cs
+C:\Users\cory\OneDrive\_Feature_Millwork\AutoCAD tools\Command Bridge\rami\autocad\CommandBridgePlugin\obj\Release\net8.0-windows\CommandBridgePlugin.csproj.CoreCompileInputs.cache
+C:\Users\cory\OneDrive\_Feature_Millwork\AutoCAD tools\Command Bridge\rami\autocad\CommandBridgePlugin\obj\Release\net8.0-windows\CommandBridgePlugin.sourcelink.json
+C:\Users\cory\OneDrive\_Feature_Millwork\AutoCAD tools\Command Bridge\rami\autocad\CommandBridgePlugin\bin\Release\net8.0-windows\FeatureMillwork.CommandBridge.deps.json
+C:\Users\cory\OneDrive\_Feature_Millwork\AutoCAD tools\Command Bridge\rami\autocad\CommandBridgePlugin\bin\Release\net8.0-windows\FeatureMillwork.CommandBridge.dll
+C:\Users\cory\OneDrive\_Feature_Millwork\AutoCAD tools\Command Bridge\rami\autocad\CommandBridgePlugin\bin\Release\net8.0-windows\FeatureMillwork.CommandBridge.pdb
+C:\Users\cory\OneDrive\_Feature_Millwork\AutoCAD tools\Command Bridge\rami\autocad\CommandBridgePlugin\obj\Release\net8.0-windows\FeatureMillwork.CommandBridge.dll
+C:\Users\cory\OneDrive\_Feature_Millwork\AutoCAD tools\Command Bridge\rami\autocad\CommandBridgePlugin\obj\Release\net8.0-windows\refint\FeatureMillwork.CommandBridge.dll
+C:\Users\cory\OneDrive\_Feature_Millwork\AutoCAD tools\Command Bridge\rami\autocad\CommandBridgePlugin\obj\Release\net8.0-windows\FeatureMillwork.CommandBridge.pdb
+C:\Users\cory\OneDrive\_Feature_Millwork\AutoCAD tools\Command Bridge\rami\autocad\CommandBridgePlugin\obj\Release\net8.0-windows\ref\FeatureMillwork.CommandBridge.dll

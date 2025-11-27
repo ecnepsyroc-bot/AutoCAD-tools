@@ -1,23 +1,34 @@
-# AutoCAD Command Line Monitoring Tool
+# AutoCAD Tools - Command Bridge & Smartbadge System
 
-## 🎯 Purpose
+A comprehensive AutoCAD automation system combining real-time command monitoring with intelligent badge management.
+
+## 🎯 Overview
+
+This repository contains two complementary systems:
+1. **.NET Command Bridge** - Real-time monitoring and VS Code integration
+2. **Luxify Smartbadge System** - Modular badge automation with Excel SSOT integration
+
+---
+
+## 🚀 Command Bridge (.NET)
+
 Real-time bridge between AutoCAD and VS Code that exponentially accelerates LISP development by providing instant feedback, error tracking, and performance metrics.
 
-## 🚀 Key Features
+### Key Features
 
-### Real-Time Monitoring
+#### Real-Time Monitoring
 - **Live Command Tracking** - See every AutoCAD command as it executes
 - **LISP Execution Monitoring** - Track LISP expressions with timing data
 - **Error Pattern Detection** - Automatically identifies common error types
 - **Performance Metrics** - Execution times, error rates, commands/minute
 
-### VS Code Integration
+#### VS Code Integration
 - **Instant Error Highlighting** - Errors appear directly in your LISP files
 - **Command History** - Full session recording with export capability
 - **Monitor Panel** - Live dashboard showing statistics and patterns
 - **Bidirectional Communication** - Send commands from VS Code to AutoCAD
 
-## 📊 Monitoring Dashboard
+### 📊 Monitoring Dashboard
 The monitor panel shows:
 - Command count and error rate
 - Average execution time
@@ -26,15 +37,15 @@ The monitor panel shows:
 - Top error patterns
 - Session duration
 
-## 🔧 Installation
+### 🔧 Installation
 
-### Quick Setup
+#### Quick Setup
 1. Run `install.bat` as Administrator
 2. Start AutoCAD 2024
 3. Type `STARTBRIDGE` in AutoCAD
 4. Open VS Code and press `Ctrl+Shift+M` to see monitor
 
-### Manual Setup
+#### Manual Setup
 ```batch
 # Build the .NET plugin
 cd autocad-plugin
@@ -49,44 +60,46 @@ STARTBRIDGE
 F5 to launch extension
 Ctrl+Shift+P → "AutoCAD Bridge: Connect"
 ```
-## 💻 Usage
 
-### AutoCAD Commands
+### 💻 Usage
+
+#### AutoCAD Commands
 - `STARTBRIDGE` - Start monitoring
 - `STOPBRIDGE` - Stop monitoring  
 - `TESTBRIDGE` - Send test message to VS Code
 
-### VS Code Commands (Ctrl+Shift+P)
+#### VS Code Commands (Ctrl+Shift+P)
 - `AutoCAD Bridge: Connect` - Connect to AutoCAD
 - `AutoCAD Bridge: Show Monitor Panel` - Open monitoring dashboard
 - `AutoCAD Bridge: Execute LISP` - Run current file/selection
 - `AutoCAD Bridge: Send Command` - Send AutoCAD command
 - `AutoCAD Bridge: Clear Log` - Clear output channel
 
-### Keyboard Shortcuts
+#### Keyboard Shortcuts
 - `Ctrl+Shift+E` - Execute LISP code (when in .lsp file)
 - `Ctrl+Shift+C` - Send AutoCAD command
 - `Ctrl+Shift+M` - Show monitor panel
 
-## 🔄 Development Workflow
+### 🔄 Development Workflow
 
-### Rapid LISP Development
+#### Rapid LISP Development
 1. Write LISP code in VS Code
 2. Press `Ctrl+Shift+E` to execute
 3. Monitor panel shows execution time and errors
 4. Errors highlight directly in your code
 5. Fix and re-execute instantly
 
-### Error Pattern Learning
+#### Error Pattern Learning
 The tool tracks error patterns to help identify:
 - Common syntax errors
 - Argument type mismatches
 - Missing functions
 - Selection errors
 - Performance bottlenecks
-## 🏗️ Architecture
 
-### Named Pipe Communication
+### 🏗️ Architecture
+
+#### Named Pipe Communication
 ```
 AutoCAD ←→ Named Pipe (AutoCADCommandBridge) ←→ VS Code
    ↓                                               ↓
@@ -95,16 +108,64 @@ CommandMonitor.cs                            extension.js
 Events & Hooks                              Monitor Panel
 ```
 
-### Message Types
+#### Message Types
 - `command_start/end` - AutoCAD command execution
 - `lisp_start/end` - LISP expression execution
 - `error` - Error messages with stack traces
 - `prompt_*` - User prompts (string/point/selection)
 - `sysvar` - System variable get/set
 
-## 🎯 Badge Reflex Integration
+### 📈 Performance Metrics
 
-This monitoring tool is KEY to developing the badge reflex system:
+The tool tracks:
+- Command execution times
+- Error frequencies by type
+- Commands per minute productivity
+- Session statistics with export
+
+---
+
+## 🏛️ Luxify Smartbadge System (Python/LISP)
+
+A modular AutoCAD automation system built on the **Luxify Architecture** for managing intelligent badges with Excel SSOT integration.
+
+### Architecture
+
+This project follows the Luxify Architecture, a modular system enforcing strict separation of concerns through five core concepts:
+
+- **rami/** — Isolated units of responsibility (autocad, badges, monitor)
+- **grafts/** — Explicit bridges between rami
+- **water/** — Event and payload definitions
+- **sap/** — Protective guardrails (validation, safety)
+- **leaves/** — Presentation layer (UI/terminal formatters)
+
+### Project Structure
+
+```
+Command Bridge/            # Luxify-based implementation
+  rami/                    # Domain logic units
+    autocad/              # AutoCAD integration
+    badges/               # Badge system logic
+    monitor/              # Monitoring components
+    excel/                # Excel SSOT integration
+  grafts/                  # Integration bridges
+  water/                   # Event definitions
+  sap/                     # Safety and validation
+  leaves/                  # Presentation components
+```
+
+### Key Features
+
+- **Badge System**: Dynamic AutoCAD attribute management
+- **Excel Integration**: Data-driven badge population from SSOT
+- **Command Bridge**: Real-time AutoCAD ↔ Python communication
+- **Monitoring**: Live event tracking and display
+
+---
+
+## 🎯 Integration Benefits
+
+The Command Bridge monitoring tool is KEY to developing the badge system:
 
 ### Immediate Benefits
 1. **Pattern Recognition** - See exactly how badge commands execute
@@ -123,13 +184,7 @@ This monitoring tool is KEY to developing the badge reflex system:
 ;; Errors appear inline if badge not found
 ```
 
-## 📈 Performance Metrics
-
-The tool tracks:
-- Command execution times
-- Error frequencies by type
-- Commands per minute productivity
-- Session statistics with export
+---
 
 ## 🔮 Future Enhancements
 - [ ] Badge-specific error patterns
@@ -138,11 +193,12 @@ The tool tracks:
 - [ ] Team telemetry sharing
 - [ ] AI-powered error suggestions
 
-## 📝 Notes
-- Works with AutoCAD 2023-2025
-- Requires .NET Framework 4.8
+## 📝 Technical Notes
+- Works with AutoCAD 2023-2026
+- Requires .NET Framework 4.8 / .NET 8.0
 - VS Code 1.74.0 or higher
 - Named pipe: `\\.\pipe\AutoCADCommandBridge`
 
 ---
-Built for Feature Millwork's 18-month automation timeline
+
+**Built for Feature Millwork's automation timeline**

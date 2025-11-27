@@ -47,10 +47,6 @@ nul
 
 # User-specific files
 *.rsuser
-*.suo
-*.user
-*.userosscache
-*.sln.docstates
 
 # Rider
 .idea/
@@ -70,3 +66,15 @@ $RECYCLE.BIN/
 *.dwl
 *.dwl2
 *.dwg.lock
+
+# LISP Temporary/History files
+*.fas
+*.vlx
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+
+# Live Data (Do NOT track the SSOT itself)
+Millwork_SSOT_v6_NonFinancial.xlsx

@@ -1,0 +1,11 @@
+C:\Users\cory\OneDrive\_Feature_Millwork\Command Bridge\rami\autocad\CommandBridgePlugin\obj\Release\net48\CommandBridgePlugin.csproj.AssemblyReference.cache
+C:\Users\cory\OneDrive\_Feature_Millwork\Command Bridge\rami\autocad\CommandBridgePlugin\obj\Release\net48\CommandBridgePlugin.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\cory\OneDrive\_Feature_Millwork\Command Bridge\rami\autocad\CommandBridgePlugin\obj\Release\net48\CommandBridgePlugin.AssemblyInfoInputs.cache
+C:\Users\cory\OneDrive\_Feature_Millwork\Command Bridge\rami\autocad\CommandBridgePlugin\obj\Release\net48\CommandBridgePlugin.AssemblyInfo.cs
+C:\Users\cory\OneDrive\_Feature_Millwork\Command Bridge\rami\autocad\CommandBridgePlugin\obj\Release\net48\CommandBridgePlugin.csproj.CoreCompileInputs.cache
+C:\Users\cory\OneDrive\_Feature_Millwork\AutoCAD tools\Command Bridge\rami\autocad\CommandBridgePlugin\obj\Release\net48\CommandBridgePlugin.csproj.AssemblyReference.cache
+C:\Users\cory\OneDrive\_Feature_Millwork\AutoCAD tools\Command Bridge\rami\autocad\CommandBridgePlugin\obj\Release\net48\CommandBridgePlugin.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\cory\OneDrive\_Feature_Millwork\AutoCAD tools\Command Bridge\rami\autocad\CommandBridgePlugin\obj\Release\net48\CommandBridgePlugin.AssemblyInfoInputs.cache
+C:\Users\cory\OneDrive\_Feature_Millwork\AutoCAD tools\Command Bridge\rami\autocad\CommandBridgePlugin\obj\Release\net48\CommandBridgePlugin.AssemblyInfo.cs
+C:\Users\cory\OneDrive\_Feature_Millwork\AutoCAD tools\Command Bridge\rami\autocad\CommandBridgePlugin\obj\Release\net48\CommandBridgePlugin.csproj.CoreCompileInputs.cache
+C:\Users\cory\OneDrive\_Feature_Millwork\AutoCAD tools\Command Bridge\rami\autocad\CommandBridgePlugin\obj\Release\net48\CommandBridgePlugin.sourcelink.json

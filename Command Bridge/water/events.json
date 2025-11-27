@@ -1,0 +1,133 @@
+{
+  "version": "1.0",
+  "lastUpdated": "2025-11-16",
+  "events": [
+    {
+      "name": "TEST",
+      "version": "1.0",
+      "producer": "rami/autocad",
+      "consumer": "rami/monitor",
+      "payload": {
+        "type": "string",
+        "format": "TEST: <message>",
+        "fields": {
+          "message": {
+            "type": "string",
+            "description": "Test message content"
+          }
+        }
+      },
+      "description": "Test messages for connection verification"
+    },
+    {
+      "name": "CMD-START",
+      "version": "1.0",
+      "producer": "rami/autocad",
+      "consumer": "rami/monitor",
+      "payload": {
+        "type": "string",
+        "format": "CMD-START: <command>",
+        "fields": {
+          "command": {
+            "type": "string",
+            "description": "AutoCAD command name (uppercase)"
+          }
+        }
+      },
+      "description": "Indicates an AutoCAD command has started"
+    },
+    {
+      "name": "CMD-END",
+      "version": "1.0",
+      "producer": "rami/autocad",
+      "consumer": "rami/monitor",
+      "payload": {
+        "type": "string",
+        "format": "CMD-END: <command>",
+        "fields": {
+          "command": {
+            "type": "string",
+            "description": "AutoCAD command name (uppercase)"
+          }
+        }
+      },
+      "description": "Indicates an AutoCAD command has ended"
+    },
+    {
+      "name": "MONITOR",
+      "version": "1.0",
+      "producer": "rami/autocad",
+      "consumer": "rami/monitor",
+      "payload": {
+        "type": "string",
+        "format": "MONITOR: <status>",
+        "fields": {
+          "status": {
+            "type": "string",
+            "description": "Monitor status message"
+          }
+        }
+      },
+      "description": "Indicates monitor state changes"
+    },
+    {
+      "name": "STATUS",
+      "version": "1.0",
+      "producer": "rami/autocad",
+      "consumer": "rami/monitor",
+      "payload": {
+        "type": "string",
+        "format": "STATUS: <message>",
+        "fields": {
+          "message": {
+            "type": "string",
+            "description": "Status message content"
+          }
+        }
+      },
+      "description": "Status messages from AutoCAD"
+    },
+    {
+      "name": "SUCCESS",
+      "version": "1.0",
+      "producer": "rami/autocad",
+      "consumer": "rami/monitor",
+      "payload": {
+        "type": "string",
+        "format": "SUCCESS: <message>",
+        "fields": {
+          "message": {
+            "type": "string",
+            "description": "Success message content"
+          }
+        }
+      },
+      "description": "Success messages"
+    },
+    {
+      "name": "ERROR",
+      "version": "1.0",
+      "producer": "rami/autocad",
+      "consumer": "rami/monitor",
+      "payload": {
+        "type": "string",
+        "format": "ERROR: <message>",
+        "fields": {
+          "message": {
+            "type": "string",
+            "description": "Error message content"
+          }
+        }
+      },
+      "description": "Error messages"
+    }
+  ],
+  "messageFormat": {
+    "structure": "<EVENT-TYPE>: <payload>",
+    "encoding": "UTF-8",
+    "lineEndings": "platform-native",
+    "file": "Logs/autocad_bridge.txt",
+    "mode": "append-only"
+  }
+}
+
