@@ -1,0 +1,6 @@
+Code,FullSpec,Shorthand,IsSpecDirty,IsStockCritical,ElevationLetter,Description,Note,DetailRef,ArchSheetRef
+PL1,Cabinet Base 2 Door - 30W x 34.5H x 24D,B2D30,True,True,A,Base Cabinet,Verify Plumbing,SK1,2-AD02
+PL2,Cabinet Wall 2 Door - 30W x 30H x 12D,W2D30,True,False,A,Wall Cabinet,,SK1,2-AD02
+PL3,Cabinet Drawer Bank - 18W x 34.5H x 24D,DB18,False,True,B,Drawer Bank,Heavy Duty Slides,SK2,2-AD03
+PL4,Tall Cabinet - 24W x 84H x 24D,T2484,False,False,C,Pantry,,SK3,2-AD04
+PL5,Island Back Panel - 60W x 34.5H,PNL60,True,True,D,Island Back,Match Grain,SK4,2-AD05

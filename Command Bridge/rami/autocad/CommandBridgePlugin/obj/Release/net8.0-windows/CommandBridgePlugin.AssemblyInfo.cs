@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("FeatureMillwork.CommandBridge")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ee3cffcedc76bf6387f7018a719b46bf69922b0a")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+7efad680255707d4da7dce27fb2455ad67c887f5")]
 [assembly: System.Reflection.AssemblyProductAttribute("FeatureMillwork.CommandBridge")]
 [assembly: System.Reflection.AssemblyTitleAttribute("FeatureMillwork.CommandBridge")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

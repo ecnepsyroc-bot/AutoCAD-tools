@@ -14,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\cory\\OneDrive\\_Feature_Millwork\\AutoCAD tools\\Command Bridge\\rami\\autocad\\CommandBridgePlugin\\CommandBridgePlugin.csproj",
+      "projectUniqueName": "C:\\Dev\\AutoCAD-tools\\Command Bridge\\rami\\autocad\\CommandBridgePlugin\\CommandBridgePlugin.csproj",
       "projectName": "FeatureMillwork.CommandBridge",
-      "projectPath": "C:\\Users\\cory\\OneDrive\\_Feature_Millwork\\AutoCAD tools\\Command Bridge\\rami\\autocad\\CommandBridgePlugin\\CommandBridgePlugin.csproj",
+      "projectPath": "C:\\Dev\\AutoCAD-tools\\Command Bridge\\rami\\autocad\\CommandBridgePlugin\\CommandBridgePlugin.csproj",
       "packagesPath": "C:\\Users\\cory\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\cory\\OneDrive\\_Feature_Millwork\\AutoCAD tools\\Command Bridge\\rami\\autocad\\CommandBridgePlugin\\obj\\",
+      "outputPath": "C:\\Dev\\AutoCAD-tools\\Command Bridge\\rami\\autocad\\CommandBridgePlugin\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

@@ -12,15 +12,18 @@ namespace FeatureMillwork.CommandBridge
 {
     /// <summary>
     /// Command Bridge Plugin - Captures ALL command line text via command echo mechanism
-    /// Simple purpose: Save copy/paste for AutoCAD tool versioning
+    /// AND supports remote execution via file polling.
     /// </summary>
     public class CommandBridgePlugin : IExtensionApplication
     {
         private static string BridgeFile = @"C:\Users\cory\OneDrive\_Feature_Millwork\Command Bridge\Logs\autocad_bridge.txt";
+        private static string CommandFile = @"C:\Users\cory\OneDrive\_Feature_Millwork\Command Bridge\Logs\autocad_commands.txt";
+        
         private static bool IsActive = true;
         private static Editor _editor;
         private static List<string> _lastCapturedLines = new List<string>();
         private static System.Threading.Timer _captureTimer;
+        private static System.Threading.Timer _commandTimer;
         private static object _lockObject = new object();
         private const int CAPTURE_LINE_COUNT = 500; // Capture last 500 lines
 
@@ -35,8 +38,10 @@ namespace FeatureMillwork.CommandBridge
                 Application.DocumentManager.DocumentActivated += OnDocumentActivated;
 
                 // Start timer to capture command line text using command echo mechanism
-                // Uses AutoCAD's internal API to read command line history
                 _captureTimer = new System.Threading.Timer(CaptureCommandLineEcho, null, 0, 200); // Check every 200ms
+
+                // Start timer to poll for commands
+                _commandTimer = new System.Threading.Timer(PollForCommands, null, 0, 500); // Check every 500ms
 
                 WriteToBridge("=== COMMAND BRIDGE PLUGIN LOADED ===");
             }
@@ -52,6 +57,7 @@ namespace FeatureMillwork.CommandBridge
             {
                 IsActive = false;
                 _captureTimer?.Dispose();
+                _commandTimer?.Dispose();
                 WriteToBridge("=== COMMAND BRIDGE PLUGIN UNLOADED ===");
             }
             catch { }
@@ -65,6 +71,50 @@ namespace FeatureMillwork.CommandBridge
         private void OnDocumentActivated(object sender, DocumentCollectionEventArgs e)
         {
             _editor = e.Document?.Editor;
+        }
+
+        /// <summary>
+        /// Poll for commands in the command file and execute them
+        /// </summary>
+        private void PollForCommands(object state)
+        {
+            if (!IsActive) return;
+
+            try
+            {
+                if (File.Exists(CommandFile))
+                {
+                    string[] commands = File.ReadAllLines(CommandFile);
+                    
+                    // Delete file immediately to prevent re-execution
+                    try { File.Delete(CommandFile); } catch { }
+
+                    if (commands.Length > 0)
+                    {
+                        Document doc = Application.DocumentManager.MdiActiveDocument;
+                        if (doc != null)
+                        {
+                            foreach (string cmd in commands)
+                            {
+                                if (!string.IsNullOrWhiteSpace(cmd))
+                                {
+                                    // Execute command in the document context
+                                    // Use SendStringToExecute for async execution
+                                    // Add a space to ensure it executes
+                                    string cmdToRun = cmd.Trim() + " ";
+                                    doc.SendStringToExecute(cmdToRun, true, false, false);
+                                    
+                                    WriteToBridge($"EXEC: {cmd.Trim()}");
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            catch (SysException ex)
+            {
+                System.Diagnostics.Debug.WriteLine($"Command Poll Error: {ex.Message}");
+            }
         }
 
         /// <summary>
@@ -190,6 +240,27 @@ namespace FeatureMillwork.CommandBridge
             if (_editor != null)
             {
                 _editor.WriteMessage("\n✅ Command Bridge disabled\n");
+            }
+        }
+        
+        [CommandMethod("BRIDGE-EXEC")]
+        public void BridgeExec()
+        {
+            try 
+            {
+                PromptStringOptions pso = new PromptStringOptions("\nEnter command to execute: ");
+                pso.AllowSpaces = true;
+                PromptResult pr = _editor.GetString(pso);
+                
+                if (pr.Status == PromptStatus.OK)
+                {
+                    Document doc = Application.DocumentManager.MdiActiveDocument;
+                    doc.SendStringToExecute(pr.StringResult + " ", true, false, false);
+                }
+            }
+            catch (System.Exception ex)
+            {
+                _editor.WriteMessage($"\nError: {ex.Message}\n");
             }
         }
     }

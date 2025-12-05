@@ -1,0 +1,43 @@
+<UserControl x:Class="Luxify.Badging.BadgePalette"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Luxify.Badging"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="300">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!-- Header / Pulse -->
+        <StackPanel Grid.Row="0" Orientation="Horizontal" Margin="5">
+            <Button Content="Check Status (Pulse)" Command="{Binding PulseCommand}" Margin="0,0,5,0" Padding="5"/>
+            <Button Content="Reload" Command="{Binding LoadCommand}" Margin="0,0,5,0" Padding="5"/>
+            <Button Content="Save Changes" Command="{Binding SaveCommand}" Padding="5" Background="#DDDDDD"/>
+        </StackPanel>
+
+        <!-- Badge Grid -->
+        <DataGrid Grid.Row="1" ItemsSource="{Binding Badges}" AutoGenerateColumns="False" IsReadOnly="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Code" Binding="{Binding Xylem.Code}" Width="50" IsReadOnly="True"/>
+                <DataGridTextColumn Header="Spec" Binding="{Binding Xylem.Shorthand}" Width="*" IsReadOnly="True"/>
+                <DataGridCheckBoxColumn Header="Dirty" Binding="{Binding Phloem.IsSpecDirty}" Width="40"/>
+                <DataGridCheckBoxColumn Header="Crit" Binding="{Binding Phloem.IsStockCritical}" Width="40"/>
+                <DataGridCheckBoxColumn Header="Prov" Binding="{Binding Phloem.ProvenanceFlag}" Width="40"/>
+                <DataGridCheckBoxColumn Header="Avail" Binding="{Binding Phloem.AvailabilityFlag}" Width="40"/>
+                <DataGridTemplateColumn Width="60">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Content="Place" 
+                                    Command="{Binding DataContext.PlaceCommand, RelativeSource={RelativeSource AncestorType=UserControl}}" 
+                                    CommandParameter="{Binding}"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</UserControl>

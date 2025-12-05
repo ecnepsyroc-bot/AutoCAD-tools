@@ -1,3 +1,4 @@
+
 # Luxify Architecture — Core Specification
 
 The Luxify Architecture is a modular system built on five concepts:
